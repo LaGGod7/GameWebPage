@@ -2,22 +2,26 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MangaHeader from "@/components/MangaHeader";
 import MangaCanvasOverlay from "@/components/MangaCanvasOverlay";
+import GovernmentHUD from "@/components/GovernmentHUD";
+import ImpactFXLayer from "@/components/ImpactFX";
+import AchievementBadges from "@/components/AchievementBadges";
 
 export const metadata: Metadata = {
-  title: "VOL. 01 // INTERACTIVE MANGA DIGITAL PORTFOLIO",
+  title: "LIBERATED // CYBERPUNK NOIR VIDEO GAME OFFICIAL SHOWCASE",
   description:
-    "A scroll-driven cyber-noir manga portfolio featuring GSAP ScrollTrigger scrollytelling, native HTML Popovers, and CSS Anchor Positioning.",
+    "Enter the living dystopian graphic novel. Liberated is an action-adventure video game inside the pages of a comic book. Stealth, gunfights, and moral dilemmas.",
   keywords: [
-    "Manga Portfolio",
-    "Cyberpunk",
-    "GSAP ScrollTrigger",
-    "Next.js 14",
-    "Motion",
-    "Scrollytelling",
-    "Creative Developer",
-    "Tailwind CSS",
+    "Liberated",
+    "Liberated Game",
+    "Walkabout Games",
+    "Atomic Wolf",
+    "Cyberpunk Noir",
+    "Playable Graphic Novel",
+    "Action Adventure",
+    "Side-Scroller",
+    "Stealth Gunplay",
   ],
-  authors: [{ name: "Cyber Noir Manga Dev" }],
+  authors: [{ name: "Atomic Wolf & Walkabout Games" }],
 };
 
 export default function RootLayout({
@@ -34,6 +38,15 @@ export default function RootLayout({
         {/* Fixed Viewport Manga Canvas Overlay (Speedlines, Halftone, Onomatopoeia) */}
         <MangaCanvasOverlay />
 
+        {/* Government Surveillance HUD — Citizen Credit Score + Threat Level */}
+        <GovernmentHUD />
+
+        {/* Global Impact FX Layer — BAM! / POW! / CRACK! comic bursts */}
+        <ImpactFXLayer />
+
+        {/* Achievement toast notifications */}
+        <AchievementBadges showAll={false} />
+
         {/* Main Application Viewport */}
         <main className="relative z-10 w-full min-h-screen overflow-x-hidden">
           {children}
@@ -42,3 +55,4 @@ export default function RootLayout({
     </html>
   );
 }
+

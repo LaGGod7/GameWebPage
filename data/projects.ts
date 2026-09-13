@@ -1,4 +1,17 @@
-import { ProjectData } from "@/components/ProjectPopoverModal";
+export interface ProjectData {
+  id: string;
+  popoverId: string;
+  title: string;
+  codename: string;
+  tagline: string;
+  description: string;
+  role: string;
+  metrics: string[];
+  techStack: { name: string; rarity: "common" | "rare" | "epic" | "legendary"; category: string }[];
+  blueprintDetails: string[];
+  githubUrl: string;
+  liveUrl: string;
+}
 
 export const sampleProjects: ProjectData[] = [
   {

@@ -61,7 +61,7 @@ export default function LiberatedGameStage() {
           LIBERATED
         </h1>
       </div>
-
+`
       {/* Gameplay Panel Reveal Stage */}
       <div className="gameplay-panel-stealth absolute inset-0 bg-black clip-hidden flex flex-col items-center justify-center p-12">
         <img src="/assets/protagonist.webp" alt="Protagonist" className="protagonist-cutout absolute left-12 bottom-0 h-4/5 object-contain" />
