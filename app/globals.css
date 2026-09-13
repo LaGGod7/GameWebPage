@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;700&family=Montserrat:ital,wght@0,700;0,900;1,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #08080a;
+  --panel-bg: #111114;
+  --text-primary: #ffffff;
+  --neon-pink: #FF0055;
+  --neon-cyan: #00E5FF;
+  --neon-yellow: #FFE600;
+  --comic-black: #000000;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Manga Halftone Screentone Patterns */
+.bg-halftone {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.bg-halftone-dark {
+  background-image: radial-gradient(#1e1e24 20%, transparent 20%);
+  background-size: 8px 8px;
+}
+
+.bg-halftone-dense {
+  background-image: radial-gradient(#262626 30%, transparent 30%);
+  background-size: 6px 6px;
+}
+
+.bg-screentone-lines {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+}
+
+.bg-speedlines {
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent,
+    transparent 40px,
+    rgba(255, 255, 255, 0.04) 40px,
+    rgba(255, 255, 255, 0.04) 43px
+  );
+}
+
+/* Diagonal Manga Cuts & Dynamic Polygons */
+.clip-manga-hero-initial {
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+
+.clip-manga-hero-full {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-diagonal-slash {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.clip-diagonal-badge {
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.clip-manga-card-1 {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.clip-manga-card-2 {
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 92%);
+}
+
+.clip-manga-card-3 {
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%);
+}
+
+.clip-action-callout {
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+}
+
+/* Comic Speech Bubble Tails */
+.speech-bubble-tail-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 32px;
+  border-width: 16px 16px 0 0;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble-tail-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: -22px;
+  left: 28px;
+  border-width: 20px 20px 0 0;
+  border-style: solid;
+  border-color: #000000 transparent transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble-tail-left::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: -16px;
+  border-width: 12px 16px 12px 0;
+  border-style: solid;
+  border-color: transparent #ffffff transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble-tail-left::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: -22px;
+  border-width: 14px 19px 14px 0;
+  border-style: solid;
+  border-color: transparent #000000 transparent transparent;
+  display: block;
+  width: 0;
+}
+
+/* CSS Anchor Positioning Specification & Fallbacks */
+@supports (anchor-name: --anchor-project-1) {
+  #anchor-p1 {
+    anchor-name: --anchor-project-1;
+  }
+  #bubble-p1 {
+    position: absolute;
+    position-anchor: --anchor-project-1;
+    position-area: top span-right;
+    margin-bottom: 1rem;
+  }
+
+  #anchor-p2 {
+    anchor-name: --anchor-project-2;
+  }
+  #bubble-p2 {
+    position: absolute;
+    position-anchor: --anchor-project-2;
+    position-area: top left;
+    margin-bottom: 1rem;
+  }
+
+  #anchor-p3 {
+    anchor-name: --anchor-project-3;
+  }
+  #bubble-p3 {
+    position: absolute;
+    position-anchor: --anchor-project-3;
+    position-area: top span-right;
+    margin-bottom: 1rem;
+  }
+}
+
+/* HTML Popover API Styling */
+[popover] {
+  margin: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+}
+
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  animation: backdropFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Manga Onomatopoeia Outline Text */
+.manga-stroke {
+  -webkit-text-stroke: 3px #000000;
+  paint-order: stroke fill;
+}
+
+.manga-stroke-lg {
+  -webkit-text-stroke: 6px #000000;
+  paint-order: stroke fill;
+}
+
+.manga-stroke-white {
+  -webkit-text-stroke: 2px #FFFFFF;
+  paint-order: stroke fill;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0055;
+  border-radius: 0;
+}
+
+/* STEP 5: Reduced Motion Override for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .character-sprite,
+  .manga-panel,
+  .manga-panel-1,
+  .manga-panel-2,
+  .manga-panel-3 {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: opacity 0.3s ease-in-out !important;
+  }
+
+  /* When reduced motion is preferred, render pinned sections as static readable flow */
+  .reduced-motion-static {
+    height: auto !important;
+    position: static !important;
+    overflow: visible !important;
+  }
+}
